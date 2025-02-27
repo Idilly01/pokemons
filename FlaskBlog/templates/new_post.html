@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Post</title>
+    <style>
+        
+        body {
+            background-image: url('https://wallpapers-clan.com/wp-content/uploads/2024/06/studio-ghibli-cozy-cottage-village-desktop-wallpaper-preview.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        
+        .adicionarPokemon {
+            background: rgba(255, 255, 255, 0.2); 
+            backdrop-filter: blur(10px); 
+            padding: 30px;
+            border-radius: 25px ;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            color: #03442e;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            color: #03442e;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        
+        button {
+            background: linear-gradient(to right, #03442e, #046c4f);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #046c4f, #057d5f);
+            transform: scale(1.05);
+        }
+
+        
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #03442e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #046c4f;
+        }
+    </style>
+</head>
+<body>
+    <div class="adicionarPokemon">
+        <h1>Criar Novo Post</h1>
+        <form action="{{ url_for('new_post') }}" method="post" enctype="multipart/form-data">
+            <label for="title">Título:</label>
+            <input type="text" name="title" id="title" required>
+
+            <label for="description">Descrição:</label>
+            <textarea name="description" id="description" required></textarea>
+
+            <label for="file">Imagem:</label>
+            <input type="file" name="file" id="file">
+
+            <button type="submit">Enviar</button>
+        </form>
+        <a href="{{ url_for('index') }}">Voltar</a>
+    </div>
+</body>
+</html>
